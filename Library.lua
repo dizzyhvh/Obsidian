@@ -835,7 +835,7 @@ end
 
 local FetchIcons, Icons = pcall(function()
     return loadstring(
-        game:HttpGet("https://raw.githubusercontent.com/deividcomsono/lucide-roblox-direct/refs/heads/main/source.lua")
+        game:HttpGet("https://raw.githubusercontent.com/dizzyhvh/Obsidian/refs/heads/main/lucide.lua")
     )()
 end)
 function Library:GetIcon(IconName: string)
@@ -850,7 +850,6 @@ function Library:GetIcon(IconName: string)
         ImageRectSize = Vector2.zero
     }
 end
-
 function Library:Validate(Table: { [string]: any }, Template: { [string]: any }): { [string]: any }
     if typeof(Table) ~= "table" then
         return Template
