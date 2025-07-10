@@ -838,18 +838,6 @@ local FetchIcons, Icons = pcall(function()
         game:HttpGet("https://raw.githubusercontent.com/deividcomsono/lucide-roblox-direct/refs/heads/main/source.lua")
     )()
 end)
-function Library:GetIcon(IconName: string)
-    if not FetchIcons then return end
-    local Success, Icon = pcall(Icons.GetAsset, IconName)
-    if Success and Icon then
-        return Icon
-    end
-    return {
-        Url = "",
-        ImageRectOffset = Vector2.zero,
-        ImageRectSize = Vector2.zero
-    }
-end
     local Success, Icon = pcall(Icons.GetAsset, IconName)
     if not Success then
         return
@@ -5838,3 +5826,16 @@ Library:GiveSignal(Teams.ChildRemoved:Connect(OnTeamChange))
 
 getgenv().Library = Library
 return Library
+
+function Library:GetIcon(IconName: string)
+    if not FetchIcons then return end
+    local Success, Icon = pcall(Icons.GetAsset, IconName)
+    if Success and Icon then
+        return Icon
+    end
+    return {
+        Url = "",
+        ImageRectOffset = Vector2.zero,
+        ImageRectSize = Vector2.zero
+    }
+end
